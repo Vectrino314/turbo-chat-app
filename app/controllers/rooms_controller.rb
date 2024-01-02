@@ -41,6 +41,7 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("room_#{@room.id}", partial: 'shared/room', locals: { room: @room }) }
         format.html { redirect_to room_url(@room), notice: "Room was successfully updated." }
         format.json { render :show, status: :ok, location: @room }
       else
