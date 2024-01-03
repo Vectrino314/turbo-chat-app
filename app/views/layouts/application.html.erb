@@ -12,8 +12,14 @@
   </head>
 
   <body>
-    <main class="">
-      <%= yield %>
-    </main>
+    <div class="flex w-full h-screen">
+      <aside class="h-screen">
+        <%= render 'shared/side_bar' %>
+      </aside>
+      <main class="w-full">
+        <%= yield %>
+      </main>
+    </div>
+
   </body>
 </html>

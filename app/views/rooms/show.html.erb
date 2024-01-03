@@ -1,6 +1,5 @@
 <%= turbo_frame_tag 'rooms_controller' do %>
   <main class="flex w-full h-screen" data-controller="slideover" data-action="keydown.esc->modal#close">
-    <%= render 'shared/side_bar' %>
     <section class="mx-auto max-w-5xl flex flex-col gap-5 h-screen px-5">
       <%= render 'room', room: @room %>
     </section>
