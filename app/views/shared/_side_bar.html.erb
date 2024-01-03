@@ -1,4 +1,6 @@
-<nav class="w-60 flex flex-col h-screen items-center justify-between border-r-2 border-stone-950">
-  <%= render 'shared/user_rooms' %>
+<nav class="w-full md:w-60 flex flex-col h-fit md:h-screen items-center justify-between md:border-r-2 md:border-stone-950">
+  <div class="mb-10 md:m-0">
+    <%= render 'shared/user_rooms' %>
+  </div>
   <%= render 'shared/create_room' %>
 </nav>
