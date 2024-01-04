@@ -7,7 +7,7 @@
 
   <!-- User Rooms -->
   <h3 class="text-white font-bold text-xl mt-3 text-center mb-2">My rooms</h3>
-  <div class="flex flex-col px-3 gap-2 w-full" id="user_<%= current_user.id %>_rooms">
+  <div class="flex flex-col px-3 gap-2 w-full" id="user_<%= current_user.id %>_rooms_mobile">
     <% current_user.rooms.all.each do |room| %>
       <%= render 'shared/room', { room: room } %>
     <% end %>

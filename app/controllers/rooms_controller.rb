@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.save
         UserRoom.create(room: @room, user: current_user)
-        format.turbo_stream { render turbo_stream: turbo_stream.append('rooms', partial: 'shared/room', locals: { room: @room }) }
+        format.turbo_stream { render turbo_stream: turbo_stream.append("rooms", partial: 'shared/room', locals: { room: @room })}
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace('room_form', partial: 'rooms/form', locals: { room: @room }) }
       end
@@ -62,18 +62,25 @@ class RoomsController < ApplicationController
     UserRoom.create(room_id: params[:room_id], user_id: params[:user_id])
 
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("room_show_#{params[:room_id]}", partial: 'rooms/room', locals: { room: Room.find(params[:room_id]) })}
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("room_show_#{params[:room_id]}", partial: 'rooms/room', locals: { room: Room.find(params[:room_id]) }) }
+    end
+  end
+
+  def create_room
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('room_form', partial: 'room/index') }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def room_params
-      params.require(:room).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room
+    @room = Room.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def room_params
+    params.require(:room).permit(:name)
+  end
 end
