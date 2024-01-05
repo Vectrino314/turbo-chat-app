@@ -1,7 +1,7 @@
 <%= turbo_stream_from 'user_rooms_desktop_channel' %>
-
+<%= turbo_stream_from 'rooms_details_desktop_channel' %>
 <nav class="w-full md:w-60 flex flex-col h-fit md:h-screen items-center justify-between md:border-r-2 md:border-stone-950">
-  <div class="mb-10 md:m-0">
+  <div class="mb-10 w-full md:m-0" data-view-type="<%= 'desktop' %>">
     <%= render 'shared/user_rooms' %>
   </div>
   <%= render 'shared/create_room' %>

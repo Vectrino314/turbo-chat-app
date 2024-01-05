@@ -2,7 +2,7 @@
   <!-- User Information and Logout -->
   <span class="text-white text-center font-semibold mt-5"><%= current_user.email %></span>
   <div class="flex items-center justify-center mt-2">
-    <%= button_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'px-3 py-1 text-white bg-red-700 rounded font-semibold text-sm'%>
+    <%= button_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'px-3 py-1 text-white bg-red-700 rounded font-semibold text-sm' %>
   </div>
 
   <!-- User Rooms -->

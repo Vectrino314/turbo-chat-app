@@ -10,6 +10,12 @@ application.register("header", HeaderController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import RoomController from "./room_controller"
+application.register("room", RoomController)
+
+import FormController from "./form_controller"
+application.register("form", FormController)
+
 // Import and register all TailwindCSS Components or just the ones you need
 import { Alert, Autosave, ColorPreview, Dropdown, Modal, Tabs, Popover, Toggle, Slideover } from "tailwindcss-stimulus-components"
 application.register('alert', Alert)
