@@ -1,0 +1,43 @@
+<section class="w-full mx-auto">
+  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="flex flex-col items-center sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="bg-orange-600 p-2 text-center rounded w-fit">
+        <%= image_tag('fire.svg', width: 80) %>
+      </div>
+      <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Log in to your account</h2>
+    </div>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mb-2">
+          <%= f.label :email, class: 'block text-sm font-medium leading-6 text-white' %>
+          <div class="mt-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block  w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-2">
+            <%= f.label :password, class: 'block text-sm font-medium leading-6 text-white' %>
+            <div class="mt-2">
+              <%= f.password_field :password, autocomplete: "current-password", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" %>
+            </div>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="my-2">
+              <%= f.check_box :remember_me, class: "h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-600" %>
+              <%= f.label :remember_me, class: "font-medium text-white" %>
+            </div>
+          <% end %>
+
+          <div>
+            <%= f.submit "Log in", class: "flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%#= render "devise/shared/links" %>
+    </div>
+  </div>
+</section>

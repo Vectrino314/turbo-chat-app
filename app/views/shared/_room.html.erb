@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "room_#{room.id}", data: { id: room.id, controller: 'room' } do %>
+  <div class="flex bg-stone-700 rounded p-2 group items-center border-stone-950 border-2 justify-between text-white font-semibold hover:shadow-lg hover:bg-stone-700 overflow-visible">
+    <%= link_to room_path(room), class: 'font-semibold py-2 text-white text-sm', data: { turbo_frame: 'rooms_controller', action: 'click->header#toggle' } do %>
+      <%= room.name %>
+    <% end %>
+
+    <%= link_to edit_room_path(room), class: 'block md:hidden group-hover:block relative' do %>
+      <div class="bg-orange-600 rounded p-2">
+        <%= image_tag('edit.svg', width: 20, class: 'font-semibold') %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<%= turbo_stream_from 'user_rooms_mobile_channel' %>
+<%= turbo_stream_from 'rooms_details_mobile_channel' %>
+<nav class="w-full md:w-60 flex flex-col h-fit md:h-screen items-center justify-between md:border-r-2 md:border-stone-950">
+  <div class="mb-10 w-full md:m-0" data-view-type="<%= 'mobile' %>">
+    <%= render 'shared/user_rooms_mobile' %>
+  </div>
+  <%= render 'shared/create_room' %>
+</nav>
