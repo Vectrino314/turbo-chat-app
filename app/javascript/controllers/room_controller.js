@@ -5,12 +5,9 @@ export default class extends Controller {
   connect() {
     console.log('Stimulus controller connected');
 
-    this.element.addEventListener('turbo:load-error', this.handleError.bind(this));
-
     // Listen for before-render event
     this.element.addEventListener('turbo:load', () => {
       console.log('Loaded');
-      this.handleReload.bind(this);
     });
 
     // Replace 'new_room_frame' with the actual ID or target of your Turbo Frame
@@ -62,16 +59,6 @@ export default class extends Controller {
     this.element.setAttribute('id', `room_${this.element.dataset.id}_${viewType}`);
     console.log(this.element.getAttribute('id'));
     console.log(this.element.getAttribute('data-turbo-frame'));
-  }
-  handleError() {
-    console.log('Handling error');
-
-    // Your error handling logic here
-    console.error('Turbo Frame load error:', event);
-
-    // Example: Refresh the Turbo Frame on error
-    Turbo.visit(window.location.href, {action: 'replace'});
-
   }
 
   handleNewRoomCreation(newRoomFrame) {

@@ -1,9 +1,25 @@
 <%= turbo_frame_tag 'rooms_controller' do %>
+<%= turbo_stream_from 'room_messages_channel' %>
   <div class="flex w-full h-screen">
     <%= render 'shared/navigation' %>
-    <main class="flex w-full h-screen" data-controller="slideover" data-action="keydown.esc->modal#close">
-      <section class="mx-auto max-w-5xl flex flex-col gap-5 h-screen px-5">
+    <main class="flex flex-col w-full h-screen" data-controller="slideover" data-action="keydown.esc->modal#close">
+      <section class="w-full flex flex-col gap-5 h-screen px-5">
         <%= render 'room', room: @room %>
+
+        <div class="flex flex-col h-1/2 md:h-4/6 items-center w-full">
+          <div class="flex flex-col h-full w-full items-center justify-center">
+            <div data-controller="chat-scroll" class="h-full w-full bg-stone-600 rounded p-2 my-5 overflow-y-auto flex flex-col" id="room_messages_div" >
+              <% @room.messages.order(:id).each do |message| %>
+                <%= render 'messages/message', message: message%>
+              <% end %>
+            </div>
+            <div class="flex flex-col w-5/6 items-center justify-center">
+              <%= render 'messages/form', { room: @room, message: Message.new } %>
+            </div>
+          </div>
+
+
+        </div>
       </section>
 
       <!-- begin sidebar/slideover -->

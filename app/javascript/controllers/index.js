@@ -16,6 +16,9 @@ application.register("room", RoomController)
 import FormController from "./form_controller"
 application.register("form", FormController)
 
+import ChatScrollController from "./chat_scroll_controller"
+application.register("chat-scroll", ChatScrollController)
+
 // Import and register all TailwindCSS Components or just the ones you need
 import { Alert, Autosave, ColorPreview, Dropdown, Modal, Tabs, Popover, Toggle, Slideover } from "tailwindcss-stimulus-components"
 application.register('alert', Alert)

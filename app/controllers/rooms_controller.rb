@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1 or /rooms/1.json
   def show
-    @view_type = ''
+    @user = current_user.id
   end
 
   # GET /rooms/new

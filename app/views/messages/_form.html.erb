@@ -1,0 +1,10 @@
+<div class="w-full" data-controller="form">
+  <%= form_with(model: [room, message], id: 'message_form', class: 'w-full flex flex-col', data: { controller: 'form', action: 'submit->form#resetComponent' }) do |f| %>
+    <div class="flex w-full">
+      <%= f.text_field :message, class: 'w-full rounded-l-lg shadow text-sm font-semibold border border-gray-100' %>
+      <%= f.button type: 'submit', class: 'bg-orange-600 font-semibold rounded-r-lg p-2' do %>
+        <%= image_tag('send.svg', width: 25) %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
