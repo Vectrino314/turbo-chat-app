@@ -68,6 +68,10 @@ group :test do
   gem "selenium-webdriver"
 end
 
+group :production do
+  gem "redis", ">= 4.0.1"
+end
+
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "devise", "~> 4.9"
