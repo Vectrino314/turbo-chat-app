@@ -37,6 +37,11 @@
         </div>
       <% end %>
 
+      <p class="mt-10 text-center text-sm text-gray-400">
+        Not a member?
+        <%= link_to "Sign up", new_registration_path(resource_name), class: "font-semibold leading-6 text-orange-400 hover:text-orange-300" %>
+      </p>
+
       <%#= render "devise/shared/links" %>
     </div>
   </div>
