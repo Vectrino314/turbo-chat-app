@@ -1,12 +1,9 @@
 <section class="w-full mx-auto">
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-      </svg>
-
-      <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+    <div class="flex flex-col items-center sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="bg-orange-600 p-2 text-center rounded w-fit">
+        <%= image_tag('fire.svg', width: 80) %>
+      </div>
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign up for your account</h2>
     </div>
 
@@ -18,7 +15,7 @@
           <div class="mb-2">
             <%= f.label :email, class: 'block text-sm font-medium leading-6 text-white' %>
             <div class="mt-2">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block  w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block  w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" %>
             </div>
           </div>
 
@@ -30,7 +27,7 @@
               <% end %>
             </div>
             <div class="mt-2">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" %>
             </div>
           </div>
 
@@ -39,12 +36,12 @@
               <%= f.label :password_confirmation, class: 'block text-sm font-medium leading-6 text-white' %>
             </div>
             <div class="mt-2">
-              <%= f.password_field :password, autocomplete: "new-password", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" %>
             </div>
           </div>
 
           <div>
-            <%= f.submit "Sign up", class: "flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" %>
+            <%= f.submit "Sign up", class: "flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400" %>
           </div>
         </div>
 
@@ -52,8 +49,8 @@
 
 
       <p class="mt-10 text-center text-sm text-gray-400">
-        Not a member?
-        <%= link_to "Sign up", new_registration_path(resource_name), class: "font-semibold leading-6 text-indigo-400 hover:text-indigo-300" %>
+        Already a member?
+        <%= link_to "Log In", new_session_path(resource_name), class: "font-semibold leading-6 text-orange-400 hover:text-orange-300" %>
       </p>
     </div>
   </div>
