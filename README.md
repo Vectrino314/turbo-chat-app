@@ -54,6 +54,14 @@ Leverage the power of Stimulus for enhancing interactivity. With Stimulus contro
 
 Ensure scalability and reliability by deploying your app on Heroku. Utilize Heroku Postgres for a robust database solution and Heroku Redis for handling real-time updates efficiently.
 
+
+## TODO
+- Add Avatars
+- Fix scroll on create message for realtime updates
+- Add attachments to messages (images, videos, files, and audio)
+- Redo responsive navigation to minimize instances in user_rooms
+
+
 ## Local Installation
 
 Ensure you have Ruby 3.2.2 and Rails 7.1.2 installed.
