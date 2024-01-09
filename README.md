@@ -56,6 +56,8 @@ Ensure scalability and reliability by deploying your app on Heroku. Utilize Hero
 
 
 ## TODO
+- Use Turbo iOS to make demo app
+- Use Turbo Android to make demo app
 - Add Avatars
 - Fix scroll on create message for realtime updates
 - Add attachments to messages (images, videos, files, and audio)
