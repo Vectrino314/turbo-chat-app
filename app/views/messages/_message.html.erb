@@ -1,32 +1,36 @@
-<%= turbo_frame_tag "message_#{message.id}", class: "flex justify-between items-center w-full bg-gray-100 rounded-lg mb-2" do %>
-  <div class="p-3 ml-3 flex flex-col gap-1">
-    <span class="text-gray-600 text-sm font-semibold"><%= message.user.email %></span>
-    <span class="text-gray-800 text-xs"><%= message.message %></span>
-    <span class="text-gray-800 text-xs font-semibold"><%= message.created_at.strftime('%b %e, %Y %l:%M %p') %></span>
-  </div>
+<%= turbo_frame_tag "message_#{message.id}", class: "w-full" do %>
+  <div id="<%= "cont_#{message.user.id}" %>" class="w-full">
+    <div id="<%= "msg_#{message.user.id}" %>" class="flex justify-between items-center w-2/3 bg-gray-100 rounded-lg mb-2">
+      <div class="p-3 ml-3 flex flex-col gap-1">
+        <span class="text-gray-600 text-sm font-semibold"><%= message.user.email %></span>
+        <span class="text-gray-800 text-xs"><%= message.message %></span>
+        <span class="text-gray-800 text-xs font-semibold"><%= message.created_at.strftime('%b %e, %Y %l:%M %p') %></span>
+      </div>
 
-  <div data-controller="dropdown" data-action="click->dropdown#toggle click@window->dropdown#hide">
-    <div id="dropdown-button" class="relative inline-block">
-      <div role="button" tabindex="0" data-dropdown-target="button" class="inline-block select-none">
+      <div data-controller="dropdown" data-action="click->dropdown#toggle click@window->dropdown#hide">
+        <div id="dropdown-button" class="relative inline-block">
+          <div role="button" tabindex="0" data-dropdown-target="button" class="inline-block select-none">
       <span class="appearance-none flex items-center inline-block">
         <%= image_tag('ellipsis-vertical.svg', width: 25, class: 'm-4') %>
       </span>
-      </div>
-      <div data-dropdown-target="menu"
-           data-transition-enter="transition ease-out duration-200"
-           data-transition-enter-from="opacity-0 translate-y-1"
-           data-transition-enter-to="opacity-100 translate-y-0"
-           data-transition-leave="transition ease-in duration-150"
-           data-transition-leave-from="opacity-100 translate-y-0"
-           data-transition-leave-to="opacity-0 translate-y-1"
-           class="hidden absolute top-4 right-0 z-10 mt-5 flex w-screen max-w-max">
-        <div class="text-sm bg-white shadow-lg rounded border overflow-hidden w-32">
-          <%= link_to edit_room_message_path(message, room_id: message.room), class: 'no-underline block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-no-wrap' do %>
-            Edit
-          <% end %>
-          <%= button_to room_message_path(message.room, message), class: 'no-underline w-full text-left block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-no-wrap', method: :delete do %>
-            Delete
-          <% end %>
+          </div>
+          <div data-dropdown-target="menu"
+               data-transition-enter="transition ease-out duration-200"
+               data-transition-enter-from="opacity-0 translate-y-1"
+               data-transition-enter-to="opacity-100 translate-y-0"
+               data-transition-leave="transition ease-in duration-150"
+               data-transition-leave-from="opacity-100 translate-y-0"
+               data-transition-leave-to="opacity-0 translate-y-1"
+               class="hidden absolute top-4 right-0 z-10 mt-5 flex w-screen max-w-max">
+            <div class="text-sm bg-white shadow-lg rounded border overflow-hidden w-32">
+              <%= link_to edit_room_message_path(message, room_id: message.room), class: 'no-underline block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-no-wrap' do %>
+                Edit
+              <% end %>
+              <%= button_to room_message_path(message.room, message), class: 'no-underline w-full text-left block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-no-wrap', method: :delete do %>
+                Delete
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
