@@ -12,7 +12,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE.md)
 
-## Demo
+## Demo test
 
 Check out the [Live Demo](https://turbo-chat-app-51765420d263.herokuapp.com/users/sign_in).
 
